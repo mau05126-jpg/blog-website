@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Mi pasión por Tomorrowland y mis artistas favoritos de música electrónica">
+    <meta name="keywords" content="Tomorrowland, Charlotte de Witte, Alan Walker, Dimitri Vegas Like Mike, David Guetta, Alesso, Steve Aoki, Armin van Buuren, Hardwell, Tiësto, Mariana BO">
+    <meta name="author" content="Mauricio Sanchez Garcia">
+    <title>Mi Pasión: Tomorrowland y Artistas Favoritos</title>
+    <link rel="icon" href="/static/img/log.jpg">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #e94560 0%, #c6366b 100%);
+            padding: 3rem 0;
+            text-align: center;
+            border-radius: 20px;
+            margin-bottom: 2rem;
+            box-shadow: 0 12px 40px rgba(233, 69, 96, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="music" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="2" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23music)"/></svg>');
+        }
+
+        header h1 {
+            color: white;
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+            position: relative;
+        }
+
+        header p {
+            font-size: 1.3rem;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 700px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        /* Navegación */
+        nav {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 1.2rem 0;
+            border-radius: 15px;
+            margin-bottom: 2rem;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #e94560;    /* color del texto de los botones */
+            font-weight: 600;
+            padding: 0.7rem 1.5rem;
+            border-radius: 25px;
+            transition: all 0.3s ease;   /* animación de los botones */
+            border: 2px solid transparent;
+        }
+
+        nav a:hover {
+            background: #e94560;    /* Fondo rojo al pasar el mouse */
+            color: white;            /* texto blanco al pasar el mause */
+            transform: translateY(-3px);  /* se eleva 3px */
+            box-shadow: 0 5px 15px rgba(233, 69, 96, 0.3);   /* sombra roja */
+        }
+
+        /* Secciones principales */
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2.5rem;
+        }
+
+        section {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        h2 {
+            color: #e94560;
+            margin-bottom: 2rem;
+            font-size: 2.5rem;
+            text-align: center;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        h2::after {
+            content: '';  /* crear el elemento */
+            position: absolute;
+            bottom: 0;   /* posición en la parte inferior*/
+            left: 50%;  /* centrado horizontal */
+            transform: translateX(-50%); /* ajuste para centrar */
+            width: 100px;  /* ancho de la línea */
+            height: 4px; /* Grosor de la linea */
+            background: linear-gradient(90deg, #e94560, #0f3460);
+            border-radius: 2px; /* Esquinas redondeadas */
+        }
+
+        h3 {
+            color: #0f3460;
+            margin: 2rem 0 1rem 0;
+            font-size: 1.8rem;
+            border-left: 4px solid #e94560;
+            padding-left: 1rem;
+        }
+
+        /* Grid de artistas */
+        .artists-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .artist-card {
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;  /* animación suave */
+            border: 1px solid rgba(233, 69, 96, 0.1);
+            position: relative;    /* necesario para posicionar la línea  artistas*/
+            overflow: hidden;      /* Evita que la línea se salga dle borde artistas */ 
+        }
+
+        .artist-card::before {
+            content: '';           /* crea el elemento */
+            position: absolute;    
+            top: 0;                /*posicion en la parte superior */
+            left: 0;
+            right: 0;
+            height: 4px;           /* grosor de la línea */
+            background: linear-gradient(90deg, #e94560, #0f3460); /* color */
+        }
+
+        .artist-card:hover {
+            transform: translateY(-10px); /* se mueve 10px hacia arriba */
+            box-shadow: 0 15px 35px rgba(233, 69, 96, 0.2); /* sombra más intensa */
+        }
+
+        .artist-image {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%; /* crear el círculo */
+            object-fit: cover;
+            margin-bottom: 1.5rem;
+            border: 4px solid #e94560; /* borde rojo del círculo */
+            box-shadow: 0 8px 20px rgba(233, 69, 96, 0.3); /* sombra del círculo */
+        }
+
+        .artist-card h4 {
+            color: #0f3460;
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .artist-genre {
+            color: #e94560;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+
+        /* Sección Tomorrowland */
+        .tomorrowland-hero {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: white;
+            padding: 3rem;
+            border-radius: 15px;
+            margin: 2rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tomorrowland-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="stars" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="1" fill="rgba(233,69,96,0.3)"/></pattern></defs><rect width="100" height="100" fill="url(%23stars)"/></svg>');
+        }
+
+        .tomorrowland-hero h3 {
+            color: white;
+            border-left: none;
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Escenarios  */
+        .stages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .stage-image-container {
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+            border-radius: 10px 10px 0 0;
+        }
+
+        .stage-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;   /* animación suave del zoom imagen */
+        }
+
+        .stage-card:hover .stage-image {
+            transform: scale(1.05);            /* agrandar la imagen a 5% */
+        }
+
+        .stage-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 0;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+        }
+
+        .stage-card h4 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            text-align: center;
+            padding: 1rem 1rem 0.5rem 1rem;
+            margin-top: 0;
+        }
+
+        .stage-card p {
+            padding: 0 1rem 1.5rem 1rem;
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        /* Información del festival */
+        .info-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .info-card {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            border-left: 4px solid #e94560; /* crear un borde de 4px de grosor,solido y de color rojo */
+        }
+
+        .info-card h4 {
+            color: #0f3460;
+            margin-bottom: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #0f3460 0%, #16213e 100%);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+            border-radius: 20px;
+            margin-top: 3rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .back-link {
+            display: inline-block;
+            background: #e94560;
+            color: white;
+            padding: 1rem 2.5rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 1.5rem;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .back-link:hover {
+            background: transparent;
+            border-color: #e94560;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(233, 69, 96, 0.3);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.5rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            section {
+                padding: 1.5rem;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎪 Mi pasión por Tomorrowland</h1>
+            <p>El festival de música electrónica más grande del mundo</p>
+        </header>
+
+        <nav>
+            <ul>
+                <li><a href="#artistas">Mis artistas favoritos</a></li>
+                <li><a href="#escenarios">Escenarios mágicos</a></li>
+                <li><a href="#experiencia">Mi experiencia soñada</a></li>
+            </ul>
+        </nav>
+
+        <div class="main-content">
+            <section id="artistas">
+                <h2>🎵 Mis artistas favoritos</h2>
+                <p>Estos son los DJs y productores que siempre están en mi playlist y que me inspiran cada día:</p>
+                
+                <div class="artists-grid">
+                    <!-- Artista 1 -->
+                    <div class="artist-card">
+                        <img src="/static/img/charlotte.jpg" alt="Charlotte de Witte - Reina del Techno" class="artist-image">
+                        <h4>Charlotte de Witte</h4>
+                        <div class="artist-genre">Techno • Acid</div>
+                        <p>La reina del techno belga, sus sets oscuros y energéticos me fascinan.</p>
+                    </div>
+
+                    <!-- Artista 2 -->
+                    <div class="artist-card">
+                        <img src="/static/img/walker.webp" alt="Alan Walker" class="artist-image">
+                        <h4>Alan Walker</h4>
+                        <div class="artist-genre">Progressive House • EDM</div>
+                        <p>Sus melodías emotivas y ese característico sonido me transportan.</p>
+                    </div>
+
+                    <!-- Artista 3 -->
+                    <div class="artist-card">
+                        <img src="/static/img/dimitri.webp" alt="Dimitri" class="artist-image">
+                        <h4>Dimitri Vegas & Like Mike</h4>
+                        <div class="artist-genre">Big Room • EDM</div>
+                        <p>Los reyes de Tomorrowland, su energía en el escenario es increíble.</p>
+                    </div>
+
+       
+
+                  
+                 
+                </div> 
+            </section>
+                
+            <section id="escenarios">
+                <h2>Los escenarios más épicos</h2>
+                <p>Cada escenario en Tomorrowland tiene su propia personalidad y magia:</p>
+
+                <div class="stages-grid">
+                    <div class="stage-card">
+                        <div class="stage-image-container">
+                            <img src="/static/img/Mainstage.webp" alt="Mainstage de Tomorrowland - Escenario principal" class="stage-image">
+                        </div>
+                        <h4>Mainstage</h4>
+                        <p>El escenario principal, una obra maestra arquitectónica diferente cada año. Aquí actúan los artistas más grandes como David Guetta, Martin Garrix y Armin van Buuren.</p>
+                    </div>
+                    
+                    <div class="stage-card">
+                        <div class="stage-image-container">
+                            <img src="/static/img/Freedom.jpg" alt="Freedom Stage - Escenario techado" class="stage-image">
+                        </div>
+                        <h4>Freedom Stage</h4>
+                        <p>Un escenario techado con producciones visuales increíbles. Perfecto para shows de trance y progressive house.</p>
+                    </div>
+                    
+                    <div class="stage-card">
+                        <div class="stage-image-container">
+                            <img src="/static/img/Atmosphere.jpg" alt="Atmosphere Stage - Cúpula de trance" class="stage-image">
+                        </div>
+                        <h4>Atmosphere</h4>
+                        <p>Dedicado al trance y progressive, con una cúpula impresionante y sonido cristalino.</p>
+                    </div>
+                    
+                    <div class="stage-card">
+                        <div class="stage-image-container">
+                            <img src="/static/img/Core.jpg" alt="Core Stage - Paraíso del techno" class="stage-image">
+                        </div>
+                        <h4>Core</h4>
+                        <p>El paraíso del techno y tech house, con sonido potente y ambiente underground.</p>
+                    </div>
+                    
+                    <div class="stage-card">
+                        <div class="stage-image-container">
+                            <img src="/static/img/Rose.webp" alt="Rose Garden - Vibra íntima" class="stage-image">
+                        </div>
+                        <h4>Rose Garden</h4>
+                        <p>Escenario de house y techno con una vibra más íntima y sets extendidos.</p>
+                    </div>
+                    
+                    <div class="stage-card">
+                        <div class="stage-image-container">
+                            <img src="/static/img/The.webp" alt="The Library - Concepto único" class="stage-image">
+                        </div>
+                        <h4>The Library</h4>
+                        <p>Un concepto único donde los DJs "toman prestados" tracks de una biblioteca musical.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="experiencia">
+                <h2>💫 Mi experiencia soñada</h2>
+                <p>Si algún día tengo la oportunidad de vivir Tomorrowland, esto es lo que me imaginaría:</p>
+
+                <div class="info-cards">
+                    <div class="info-card">
+                        <h4>🏕️ Dreamville</h4>
+                        <p>Llegar el jueves para armar la tienda de campaña y conocer a gente de todo el mundo en The Gathering</p>
+                    </div>
+                    <div class="info-card">
+                        <h4>🌅 Primer día</h4>
+                        <p>Explorar todos los escenarios, probar comida de diferentes países y ver el sunset en el Mainstage</p>
+                    </div>
+                    <div class="info-card">
+                        <h4>🎵 Sets inolvidables</h4>
+                        <p>Ver a todos mis artistas favoritos, especialmente el set de Charlotte de Witte en Core</p>
+                    </div>
+                    <div class="info-card">
+                        <h4>✨ Momentos mágicos</h4>
+                        <p>Los fuegos artificiales del cierre, el Book of Wisdom y conocer a la People of Tomorrow</p>
+                    </div>
+                </div>
+
+                <h3>🎫 ¿Cómo asistir?</h3>
+                <p>La venta de tickets es mediante un sistema de registro global. Es difícil conseguir entradas, pero no imposible. La magia de Tomorrowland vale cada esfuerzo.</p>
+
+                <h3>🌟 ¿Por qué me encanta?</h3>
+                <p>Tomorrowland representa todo lo que amo de la música electrónica: <strong>unión, diversidad, creatividad y pasión</strong>. Es más que música, es una filosofía de vida donde el lema "Live Today, Love Tomorrow, Unite Forever" se hace realidad.</p>
+            </section>
+        </div>
+
+        <footer>
+            <p>"La música electrónica no es solo un género, es un sentimiento que nos une a todos"</p>
+            <a href="blog_1.html" class="back-link">← Volver a Mi Blog Personal</a>
+            <p style="margin-top: 2rem; color: rgba(255, 255, 255, 0.7);">© 2025 Mauricio Sanchez Garcia - Soñando con vivir Tomorrowland</p>
+        </footer>
+    </div>
+</body>
+</html>
